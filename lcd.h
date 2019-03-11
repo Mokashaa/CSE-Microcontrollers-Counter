@@ -23,7 +23,7 @@ void LCD_SendCommand (uint8 command);
 // This function is used to send an 'uint8' type of data to the LCD 
 void LCD_SendData (uint8 data);
 // This function is used to display strings, (we'll use it to display numbers from 0-->999)
-void LCD_DisplayString (const uint8 * Str);
+void LCD_DisplayString (uint16 i);
 // This function is used to convert integers to strings (we'll use to convert numbers from 0-->999 to strings;
 // because the LCD displays characters only (can translate ASCI codes of characters only)
 void LCD_IntegerToString (uint16 data);
