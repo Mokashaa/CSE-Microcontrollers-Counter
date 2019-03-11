@@ -8,7 +8,7 @@ void LCD_SendData (uint8 data)
 {
 
 }
-void LCD_DisplayString (const uint8 * Str)
+void LCD_DisplayString (uint16 i)
 {
 	
 }
