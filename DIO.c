@@ -29,33 +29,33 @@ void DIO_Write8Bits (uint8 port_index, uint8 pins_mask)
 	switch(port_index)
 	{
 		case PA:
-			DIO_WritePort(PA, pins_mask, STD_HIGH);
-		  DIO_WritePort(PA, !(pins_mask), STD_LOW);
-	   	break;
+		  DIO_WritePort(PA, pins_mask, STD_HIGH);
+		  DIO_WritePort(PA, ~(pins_mask), STD_LOW);
+	   	  break;
 		
 		case PB:
-			DIO_WritePort(PB, pins_mask, STD_HIGH);
-		  DIO_WritePort(PB, !(pins_mask), STD_LOW);
-	   	break;
+	          DIO_WritePort(PB, pins_mask, STD_HIGH);
+		  DIO_WritePort(PB, ~(pins_mask), STD_LOW);
+	   	  break;
 		
 		case PC:
-			DIO_WritePort(PC, pins_mask, STD_HIGH);
-		  DIO_WritePort(PC, !(pins_mask), STD_LOW);
-	   	break;
+		  DIO_WritePort(PC, pins_mask, STD_HIGH);
+		  DIO_WritePort(PC, ~(pins_mask), STD_LOW);
+	   	  break;
 		
 		case PD:
-			DIO_WritePort(PD, pins_mask, STD_HIGH);
-		  DIO_WritePort(PD, !(pins_mask), STD_LOW);
-	   	break;
+	          DIO_WritePort(PD, pins_mask, STD_HIGH);
+		  DIO_WritePort(PD, ~(pins_mask), STD_LOW);
+	   	  break;
 		
 		case PE:
-			DIO_WritePort(PE, pins_mask, STD_HIGH);
-		  DIO_WritePort(PE, !(pins_mask), STD_LOW);
-	   	break;
+		  DIO_WritePort(PE, pins_mask, STD_HIGH);
+		  DIO_WritePort(PE, ~(pins_mask), STD_LOW);
+	   	  break;
 		
 		case PF:
-			DIO_WritePort(PF, pins_mask, STD_HIGH);
-		  DIO_WritePort(PF, !(pins_mask), STD_LOW);
-	   	break;
+		  DIO_WritePort(PF, pins_mask, STD_HIGH);
+		  DIO_WritePort(PF, ~(pins_mask), STD_LOW);
+	   	  break;
 	}
 }
