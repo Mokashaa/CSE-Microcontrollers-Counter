@@ -1,5 +1,11 @@
 #include "lcd.h"
 
+void delay (uint32_t x)
+{
+	while(x != 0)
+		x--;
+}
+
 void LCD_SendCommand (uint8 command)
 {
 	DIO_WritePort(LCD_CTRL_PORT, RS, STD_LOW);
