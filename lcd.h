@@ -8,8 +8,8 @@
 #define RS 0x01 
 #define RW 0x02
 #define E 0x04
-#define LCD_CTRL_PORT 1
-#define LCD_DATA_PORT 0
+#define LCD_CTRL_PORT PB
+#define LCD_DATA_PORT PA
 
 //LCD commands:
 #define Clear_Command 0x01
@@ -29,5 +29,7 @@ void LCD_DisplayString (const uint8 * Str);
 void LCD_IntegerToString (uint16 data);
 // This function is used to Initialize the LCD 
 void LCD_Init (void);
+//Delay Function
+void delay (uint32_t x);
 
 #endif
