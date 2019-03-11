@@ -39,7 +39,13 @@
 
 #ifndef __TM4C123GH6PM_H__
 #define __TM4C123GH6PM_H__
-
+//Port Index//
+#define PA 0
+#define PB 1
+#define PC 2
+#define PD 3
+#define PE 4
+#define PF 5
 //*****************************************************************************
 //
 // Interrupt assignments
