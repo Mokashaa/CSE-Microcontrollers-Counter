@@ -27,16 +27,16 @@ void LCD_DisplayString (uint16 i)
 	temp=(i/100)+48;// convert first digit to ascii
 	char x;
 	x=temp;
-	LCD_COMMAND(0x80);//first digit 
-	LCD_DATA(x);
+	LCD_SendCommand(0x80);//first digit 
+	LCD_SendData(x);
 	temp=(temp/10)+48;// convert second digit to ascii
 	x=temp;
-	LCD_COMMAND(0x81);
-	LCD_DATA(x);
+	LCD_SendCommand(0x81);
+	LCD_SendData(x);
 	temp=(i%10)+48;	// convert third digit to ascii
 	x=temp;
-	LCD_COMMAND(0x82);
-	LCD_DATA(x);
+	LCD_SendData(0x82);
+	LCD_SendData(x);
 }
 
 void LCD_IntegerToString (uint16 data)
