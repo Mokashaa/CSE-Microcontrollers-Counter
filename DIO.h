@@ -13,5 +13,5 @@ typedef enum
 uint8 DIO_ReadPort (uint8 port_index, uint8 pins_mask);
 void DIO_WritePort (uint8 port_index, uint8 pins_mask, DIO_LevelType pins_level);
 void DIO_FlipPort (uint8 port_index, uint8 pins_mask);
-void DIO_Write8Bits (uint8 port_index,uint8 levels);
+void DIO_Write8Bits (uint8 port_index, uint8 pins_mask);
 #endif

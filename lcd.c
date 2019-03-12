@@ -23,9 +23,10 @@ void LCD_SendData (uint8 data)
 
 }
 void LCD_DisplayString (uint16 i)
-{uint8 temp;
-	temp=(i/100)+48;// convert first digit to ascii
+{ 
+	uint8 temp;
 	char x;
+	temp=(i/100)+48;// convert first digit to ascii
 	x=temp;
 	LCD_SendCommand(0x80);//first digit 
 	LCD_SendData(x);

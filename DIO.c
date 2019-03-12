@@ -15,6 +15,8 @@ uint8 DIO_ReadPort (uint8 port_index, uint8 pins_mask)
 	return (GPIO_PORTE_DATA_R & pins_mask);
 	case PF:
 	return (GPIO_PORTF_DATA_R & pins_mask);
+	default: 
+		return 0;
 	}
 }
 
@@ -28,7 +30,7 @@ void DIO_Write8Bits (uint8 port_index, uint8 pins_mask)
 	   	  break;
 		
 		case PB:
-	          DIO_WritePort(PB, pins_mask, STD_HIGH);
+	    DIO_WritePort(PB, pins_mask, STD_HIGH);
 		  DIO_WritePort(PB, ~(pins_mask), STD_LOW);
 	   	  break;
 		
@@ -38,7 +40,7 @@ void DIO_Write8Bits (uint8 port_index, uint8 pins_mask)
 	   	  break;
 		
 		case PD:
-	          DIO_WritePort(PD, pins_mask, STD_HIGH);
+	    DIO_WritePort(PD, pins_mask, STD_HIGH);
 		  DIO_WritePort(PD, ~(pins_mask), STD_LOW);
 	   	  break;
 		
@@ -51,5 +53,77 @@ void DIO_Write8Bits (uint8 port_index, uint8 pins_mask)
 		  DIO_WritePort(PF, pins_mask, STD_HIGH);
 		  DIO_WritePort(PF, ~(pins_mask), STD_LOW);
 	   	  break;
+	}
+}
+void DIO_WritePort (uint8 port_index, uint8 pins_mask, DIO_LevelType pins_level)
+{
+	switch (port_index)
+	{
+		case PA:
+			if (pins_level==STD_HIGH)
+			{
+				GPIO_PORTA_DATA_R |= pins_mask;
+			}
+			else
+			{
+				GPIO_PORTA_DATA_R &= ~(pins_mask);
+			}
+		break;
+		
+		case PB:
+			if (pins_level==STD_HIGH)
+			{
+				GPIO_PORTB_DATA_R |= pins_mask;
+			}
+			else
+			{
+				GPIO_PORTB_DATA_R &= ~(pins_mask);
+			}
+	   	  break;
+		
+		case PC:
+			if (pins_level==STD_HIGH)
+			{
+				GPIO_PORTC_DATA_R |= pins_mask;
+			}
+			else
+			{
+				GPIO_PORTC_DATA_R &= ~(pins_mask);
+			}
+	   	  break;
+		
+		case PD:
+			if (pins_level==STD_HIGH)
+			{
+				GPIO_PORTD_DATA_R |= pins_mask;
+			}
+			else
+			{
+				GPIO_PORTD_DATA_R &= ~(pins_mask);
+			}
+	   	  break;
+		
+		case PE:
+			if (pins_level==STD_HIGH)
+			{
+				GPIO_PORTE_DATA_R |= pins_mask;
+			}
+			else
+			{
+				GPIO_PORTE_DATA_R &= ~(pins_mask);
+			}
+	   	  break;
+		
+		case PF:
+			if (pins_level==STD_HIGH)
+			{
+				GPIO_PORTF_DATA_R |= pins_mask;
+			}
+			else
+			{
+				GPIO_PORTF_DATA_R &= ~(pins_mask);
+			}
+			break;
+			
 	}
 }
