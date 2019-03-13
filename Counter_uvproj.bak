@@ -435,11 +435,6 @@
               <FileType>1</FileType>
               <FilePath>.\switch.c</FilePath>
             </File>
-            <File>
-              <FileName>Application.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Application.c</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>
