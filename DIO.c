@@ -1,4 +1,12 @@
 #include "DIO.h" 
+
+
+void delay (uint32_t x)
+{
+	while(x != 0)
+		x--;
+}
+
 uint8 DIO_ReadPort (uint8 port_index, uint8 pins_mask)
 {
 	switch(port_index)

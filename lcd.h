@@ -29,7 +29,6 @@ void LCD_DisplayString (uint16 i);
 void LCD_IntegerToString (uint16 data);
 // This function is used to Initialize the LCD 
 void LCD_Init (void);
-//Delay Function
-void delay (uint32_t x);
+
 
 #endif
