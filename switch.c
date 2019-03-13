@@ -45,6 +45,7 @@ void Switch_HandleOnPress(uint8 port_index, uint8 pins_mask)
 
 void Switch_HandleOnRelease(uint8 port_index, uint8 pins_mask)
 {
-
+	while(DIO_ReadPort(port_index,pins_mask)) {}
+	//Reset();
 }
 
