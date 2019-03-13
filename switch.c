@@ -1,5 +1,5 @@
 #include "switch.h"
-//#include "counter.h"
+#include "Application.h"
 
 
 uint8 OnPress_flag =0;
@@ -32,17 +32,10 @@ void Switch_HandleOnPress(uint8 port_index, uint8 pins_mask)
 			//second check due to switch de-bouncing
 			if(DIO_ReadPort(port_index,pins_mask))
 			{
-				if(OnPress_flag == 0)
-				{
-					//decrement();
-					OnPress_flag = 1;
-				}
+				decrement();
+				while(DIO_ReadPort(port_index,pins_mask)) {}
 			}
 		}
-		else
-		{
-			OnPress_flag= 0;
-		} 
 }
 
 void Switch_HandleOnRelease(uint8 port_index, uint8 pins_mask)
@@ -53,7 +46,7 @@ void Switch_HandleOnRelease(uint8 port_index, uint8 pins_mask)
 		if(DIO_ReadPort(port_index,pins_mask))
 		{
 			while(DIO_ReadPort(port_index,pins_mask)) {}
-			//Reset()
+			reset();
 		}
 	}
 }
