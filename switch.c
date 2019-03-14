@@ -20,7 +20,20 @@ void Switch_Init_Down(uint8 port_index, uint8 pins_mask)
 
 void Switch_HandleOnLevel(uint8 port_index, uint8 pins_mask)
 {
-	
+	if(DIO_ReadPort(port_index,pins_mask))
+	{
+		delay(30); // de-bouncing
+		if(DIO_ReadPort(port_index,pins_mask))
+		{
+			increment();
+			while(DIO_ReadPort(port_index,pins_mask)) 	
+				{
+					 delay(200);  //consider the delay in lcd_command and lcd_data }
+					 increment();
+				}
+				delay(30);// de-bouncing 
+		}	
+	}
 }
 
 
