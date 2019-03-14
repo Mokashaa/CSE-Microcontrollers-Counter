@@ -12,8 +12,13 @@ void LCD_SendCommand (uint8 command)
 	DIO_WritePort(LCD_CTRL_PORT, E, STD_LOW);
 	delay(100);
 }
-void LCD_SendData (uint8 data)
+void LCD_SendData (uint8 data) 
 {
+ LCD_CTRL_PORT = 0x01;  // setting Rs = 1 and Rw =0 
+ LCD_CTRL_PORT |= 0x04; // assert enable 
+ LCD_DATA_PORT = data;
+ delay(100);
+ LCD_CTRL_PORT = 0; 
 
 }
 void LCD_DisplayString (const uint8 *str)
