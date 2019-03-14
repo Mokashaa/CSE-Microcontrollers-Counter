@@ -135,3 +135,8 @@ void DIO_WritePort (uint8 port_index, uint8 pins_mask, DIO_LevelType pins_level)
 			
 	}
 }
+
+void DIO_FlipPort (uint8 port_index, uint8 pins_mask)
+{
+	
+}
