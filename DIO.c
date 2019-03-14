@@ -137,3 +137,20 @@ void DIO_WritePort (uint8 port_index, uint8 pins_mask, DIO_LevelType pins_level)
 			
 	}
 }
+
+void DIO_FlipPort (uint8 port_index, uint8 pins_mask)
+{
+	offset=0x0004;
+    for (int i=0; i<=8;i++)
+		{   
+		    address= port_index; 
+		    address=address+ offset;
+			if (pins_mask[i]==1)
+				{
+				port_index = !port_index;
+				}
+				
+				offset*2;
+				
+		}
+}

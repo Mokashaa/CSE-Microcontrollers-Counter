@@ -1,7 +1,5 @@
 #include "lcd.h"
 
-
-
 void LCD_SendCommand (uint8 command)
 {
 	DIO_WritePort(LCD_CTRL_PORT, RS, STD_LOW);
@@ -18,27 +16,21 @@ void LCD_SendData (uint8 data)
 {
 
 }
-void LCD_DisplayString (uint16 i)
-{ 
-	uint8 temp;
-	char x;
-	temp=(i/100)+48;// convert first digit to ascii
-	x=temp;
-	LCD_SendCommand(0x80);//first digit 
-	LCD_SendData(x);
-	temp=(temp/10)+48;// convert second digit to ascii
-	x=temp;
-	LCD_SendCommand(0x81);
-	LCD_SendData(x);
-	temp=(i%10)+48;	// convert third digit to ascii
-	x=temp;
-	LCD_SendData(0x82);
-	LCD_SendData(x);
+void LCD_DisplayString (const uint8 *str)
+{
+	int i;
+	LCD_SendCommand(Cursor_Location);
+	for(i=0;str[i]!=0;i++)  
+	{
+		LCD_SendData (str[i]);  
+	}
 }
 
 void LCD_IntegerToString (uint16 data)
 {
-
+	char ArrayofChar [20]; //Array of Characters/String to Hold Ascii result
+	itoa(data, ArrayofChar, 10);
+	LCD_DisplayString(ArrayofChar);
 }
 void LCD_Init (void)
 {
