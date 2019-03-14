@@ -141,16 +141,16 @@ void DIO_FlipPort (uint8 port_index, uint8 pins_mask)
 	switch(port_index)
 	{
 	case PA :
-	   GPIO_PORTA_DATA_R = (GPIO_PORTA_DATA_R ^ pins_mask);
+	   GPIO_PORTA_DATA_R ^= pins_mask;
         case PB :
-	   GPIO_PORTB_DATA_R = (GPIO_PORTB_DATA_R ^ pins_mask);
+	   GPIO_PORTB_DATA_R ^= pins_mask;
 	case PC :    
-	   GPIO_PORTC_DATA_R = (GPIO_PORTC_DATA_R ^ pins_mask);
+	   GPIO_PORTC_DATA_R ^= pins_mask;
         case PD :
-	   GPIO_PORTD_DATA_R = (GPIO_PORTD_DATA_R ^ pins_mask);
+	   GPIO_PORTD_DATA_R ^= pins_mask;
 	case PE :
-	   GPIO_PORTE_DATA_R = (GPIO_PORTE_DATA_R ^ pins_mask);
+	   GPIO_PORTE_DATA_R ^= pins_mask;
 	case PF :
-	   GPIO_PORTF_DATA_R = (GPIO_PORTF_DATA_R ^ pins_mask);
+	   GPIO_PORTF_DATA_R ^= pins_mask;
 	}
 }
