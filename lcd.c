@@ -1,7 +1,5 @@
 #include "lcd.h"
 
-
-
 void LCD_SendCommand (uint8 command)
 {
 	DIO_WritePort(LCD_CTRL_PORT, RS, STD_LOW);
@@ -38,7 +36,9 @@ void LCD_DisplayString (uint16 i)
 
 void LCD_IntegerToString (uint16 data)
 {
-
+	char ArrayofChar [20]; //Array of Characters/String to Hold Ascii result
+	itoa(data, ArrayofChar, 10);
+	LCD_DisplayString(ArrayofChar);
 }
 void LCD_Init (void)
 {
