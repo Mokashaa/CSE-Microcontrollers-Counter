@@ -4,13 +4,13 @@ void LCD_SendCommand (uint8 command)
 {
 	DIO_WritePort(LCD_CTRL_PORT, RS, STD_LOW);
 	DIO_WritePort(LCD_CTRL_PORT, RW, STD_LOW);
-	delay(100);
+	delay_ms(100);
 	DIO_WritePort(LCD_CTRL_PORT, E, STD_HIGH);
-	delay(100);
+	delay_ms(100);
 	DIO_Write8Bits(LCD_CTRL_PORT, command);
-	delay(100);
+	delay_ms(100);
 	DIO_WritePort(LCD_CTRL_PORT, E, STD_LOW);
-	delay(100);
+	delay_ms(100);
 }
 
 void LCD_SendData (uint8 data) 
@@ -19,7 +19,7 @@ void LCD_SendData (uint8 data)
  LCD_CTRL_PORT = 0x01;  // setting Rs = 1 and Rw =0 
  LCD_CTRL_PORT |= 0x04; // assert enable 
  LCD_DATA_PORT = data;
- delay(100);
+ delay_ms(100);
  LCD_CTRL_PORT = 0; 
 */
 }

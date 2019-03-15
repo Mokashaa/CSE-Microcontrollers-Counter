@@ -15,5 +15,5 @@ void DIO_WritePort (uint8 port_index, uint8 pins_mask, DIO_LevelType pins_level)
 void DIO_FlipPort (uint8 port_index, uint8 pins_mask);
 void DIO_Write8Bits (uint8 port_index, uint8 pins_mask);
 //Delay Function
-void delay (uint32_t x);
+void delay_ms (uint32_t x);
 #endif

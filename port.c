@@ -163,4 +163,5 @@ void Port_SetPinDirection (uint8 port_index, uint8 pins_mask, Port_PinDirectionT
 			break;
 	}
 }
+
 	
