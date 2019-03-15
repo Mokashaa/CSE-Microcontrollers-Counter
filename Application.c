@@ -1,11 +1,13 @@
 #include "Application.h"
+#include "lcd.h"
 
+uint16 counter_var=0;
 void increment (void)
 {
-	i=i+1;
-	if (i>999)
-	{i=999;}
-	LCD_IntegerToString(i);
+	counter_var+=1;
+	if (counter_var>999)
+	{counter_var=999;}
+	LCD_IntegerToString(counter_var);
 }
 // This function is used to decrement numbers from 999 to 0 and print them to the LCD when the decrement switch is pressed
 void decrement (void)

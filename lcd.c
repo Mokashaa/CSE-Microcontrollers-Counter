@@ -33,7 +33,7 @@ void LCD_DisplayString (const uint8 *str)
 
 void LCD_IntegerToString (uint16 data)
 {
-	char ArrayofChar [20]; //Array of Characters/String to Hold Ascii result
+	uint8 ArrayofChar [20]; //Array of Characters/String to Hold Ascii result
 	itoa(data, ArrayofChar, 10);
 	LCD_DisplayString(ArrayofChar);
 }
