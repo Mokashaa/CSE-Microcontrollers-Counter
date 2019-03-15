@@ -31,4 +31,9 @@ void LCD_IntegerToString (uint16 data);
 void LCD_Init (void);
 
 
+//additional functions for the implementation of itoa function
+void swap(uint8 *x, uint8 *y);
+uint8* reverse(uint8 *buffer, uint16 i, uint16 j);
+uint8* itoa(int value, uint8* buffer, uint16 base); 
+
 #endif
