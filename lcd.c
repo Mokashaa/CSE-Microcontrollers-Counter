@@ -16,12 +16,15 @@ void LCD_SendCommand (uint8 command)
 
 void LCD_SendData (uint8 data) 
 {
-DIO_WritePort(LCD_CTRL_PORT, RS, STD_HIGH);
-DIO_WritePort(LCD_CTRL_PORT, RW, STD_LOW);
-DIO_WritePort(LCD_DATA_PORT, RS, STD_LOW);
-DIO_Write8Bits(LCD_DATA_PORT, data);
-Delay100ms(1);
-DIO_Write8Bits(LCD_CTRL_PORT, 0);
+	DIO_WritePort(LCD_CTRL_PORT, RS, STD_HIGH);
+	DIO_WritePort(LCD_CTRL_PORT, RW, STD_LOW);
+	DIO_WritePort(LCD_DATA_PORT, RS, STD_LOW);
+	DIO_WritePort(LCD_CTRL_PORT, E, STD_HIGH);
+	DIO_Write8Bits(LCD_DATA_PORT, data);
+	Delay100ms(1);
+	DIO_WritePort(LCD_CTRL_PORT, RS, STD_LOW);
+	DIO_WritePort(LCD_CTRL_PORT, RW, STD_LOW);
+	DIO_WritePort(LCD_CTRL_PORT, E, STD_LOW);
 /*
  LCD_CTRL_PORT = 0x01;  // setting Rs = 1 and Rw =0 
  LCD_CTRL_PORT |= 0x04; // assert enable 
