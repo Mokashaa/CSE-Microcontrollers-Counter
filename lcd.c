@@ -1,16 +1,17 @@
 #include "lcd.h"
 #include <stdlib.h>
+
 void LCD_SendCommand (uint8 command)
 {
 	DIO_WritePort(LCD_CTRL_PORT, RS, STD_LOW);
 	DIO_WritePort(LCD_CTRL_PORT, RW, STD_LOW);
-	delay_ms(100);
+	Delay100ms(0.01);
 	DIO_WritePort(LCD_CTRL_PORT, E, STD_HIGH);
-	delay_ms(100);
+	Delay100ms(0.01);
 	DIO_Write8Bits(LCD_CTRL_PORT, command);
-	delay_ms(100);
+	Delay100ms(0.01);
 	DIO_WritePort(LCD_CTRL_PORT, E, STD_LOW);
-	delay_ms(100);
+	Delay100ms(0.01);
 }
 
 void LCD_SendData (uint8 data) 
@@ -19,7 +20,7 @@ DIO_WritePort(LCD_CTRL_PORT, RS, STD_HIGH);
 DIO_WritePort(LCD_CTRL_PORT, RW, STD_LOW);
 DIO_WritePort(LCD_DATA_PORT, RS, STD_LOW);
 DIO_Write8Bits(LCD_DATA_PORT, data);
-delay_ms(100);
+Delay100ms(1);
 DIO_Write8Bits(LCD_CTRL_PORT, 0);
 /*
  LCD_CTRL_PORT = 0x01;  // setting Rs = 1 and Rw =0 
@@ -29,6 +30,7 @@ DIO_Write8Bits(LCD_CTRL_PORT, 0);
  LCD_CTRL_PORT = 0; 
 */
 }
+
 void LCD_DisplayString (const uint8 *str)
 {
 	int i;
@@ -45,6 +47,7 @@ void LCD_IntegerToString (uint16 data)
 	itoa(data, ArrayofChar, 10);
 	LCD_DisplayString(ArrayofChar);
 }
+
 void LCD_Init (void)
 {
 	//initiallizing data port and control port and setting their pins as output
@@ -61,11 +64,9 @@ void LCD_Init (void)
 }
 
 //the implementation of itoa functions and its additional functions
-
 void swap(uint8 *x, uint8 *y) {
 	uint8 t = *x; *x = *y; *y = t;
 }
-
 // function to reverse buffer[i..j]
 uint8 * reverse(uint8 *buffer, uint16 i, uint16 j)
 {
@@ -74,7 +75,6 @@ uint8 * reverse(uint8 *buffer, uint16 i, uint16 j)
 
 	return buffer;
 }
-
 // Iterative function to implement itoa() function in C
 uint8* itoa(int value, uint8* buffer, uint16 base)
 {

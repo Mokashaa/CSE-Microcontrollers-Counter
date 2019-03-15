@@ -1,14 +1,11 @@
 #include "DIO.h" 
-#include "delay.h"
 
-void delay_ms (uint32_t x)
+void Delay100ms(double x)
 {
-	//Frequency of MC = 16Mhz
-	//Clock Cycle duration = 1/16Mhz = 62.5 ns
-	//delay amount in ms = x
-	//x * 10^(-3) = y * 62.5 * (10^(-9)) * 3
-	uint32_t y = (x*(10^(-3)))/(62.5*(10^(-9))*3);
-	SysCtlDelay(y);
+double i;
+i = 1333333*x; 
+while(i > 0)
+i = i - 1;
 }
 
 uint8 DIO_ReadPort (uint8 port_index, uint8 pins_mask)
