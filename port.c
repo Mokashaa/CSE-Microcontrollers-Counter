@@ -56,7 +56,38 @@ void Port_Init (uint8 port_index)
 }
 void Port_SetPinPullUp (uint8 port_index, uint8 pins_mask, uint8 enable)
 {
-	
+switch(port_index)
+	{
+	case PA :
+	   if (enable) 
+	   GPIO_PORTA_PUR_R |= pins_mask;
+	   else GPIO_PORTA_PUR_R &= ~pins_mask;
+    case PB :
+	   if (enable) 
+	   GPIO_PORTB_PUR_R |= pins_mask;
+	   else GPIO_PORTB_PUR_R &= ~pins_mask;
+	   
+	case PC :    
+	   if (enable) 
+	   GPIO_PORTC_PUR_R |= pins_mask;
+	   else GPIO_PORTC_PUR_R &= ~pins_mask;
+	   
+    case PD :
+	   if (enable) 
+	   GPIO_PORTD_PUR_R |= pins_mask;
+	   else GPIO_PORTD_PUR_R &= ~pins_mask;
+	   
+	case PE :
+	   if (enable) 
+	   GPIO_PORTE_PUR_R |= pins_mask;
+	   else GPIO_PORTE_PUR_R &= ~pins_mask;
+	   
+	case PF :
+	   if (enable) 
+	   GPIO_PORTF_PUR_R |= pins_mask;
+	   else GPIO_PORTF_PUR_R &= ~pins_mask;
+	   
+	}   	
 }
 	
 void Port_SetPinPullDown(uint8 port_index,uint8 pins_mask,uint8 enable)

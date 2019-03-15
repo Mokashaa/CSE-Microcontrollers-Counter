@@ -4,9 +4,7 @@
 void delay (uint32_t x)
 {
 	while(x != 0)
-	{
 		x--;
-	}
 }
 
 uint8 DIO_ReadPort (uint8 port_index, uint8 pins_mask)
@@ -140,17 +138,19 @@ void DIO_WritePort (uint8 port_index, uint8 pins_mask, DIO_LevelType pins_level)
 
 void DIO_FlipPort (uint8 port_index, uint8 pins_mask)
 {
-	offset=0x0004;
-    for (int i=0; i<=8;i++)
-		{   
-		    address= port_index; 
-		    address=address+ offset;
-			if (pins_mask[i]==1)
-				{
-				port_index = !port_index;
-				}
-				
-				offset*2;
-				
-		}
+	switch(port_index)
+	{
+	case PA :
+	   GPIO_PORTA_DATA_R ^= pins_mask;
+        case PB :
+	   GPIO_PORTB_DATA_R ^= pins_mask;
+	case PC :    
+	   GPIO_PORTC_DATA_R ^= pins_mask;
+        case PD :
+	   GPIO_PORTD_DATA_R ^= pins_mask;
+	case PE :
+	   GPIO_PORTE_DATA_R ^= pins_mask;
+	case PF :
+	   GPIO_PORTF_DATA_R ^= pins_mask;
+	}
 }
