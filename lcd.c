@@ -18,7 +18,6 @@ void LCD_SendData (uint8 data)
 {
 	DIO_WritePort(LCD_CTRL_PORT, RS, STD_HIGH);
 	DIO_WritePort(LCD_CTRL_PORT, RW, STD_LOW);
-	DIO_WritePort(LCD_DATA_PORT, RS, STD_LOW);
 	DIO_WritePort(LCD_CTRL_PORT, E, STD_HIGH);
 	DIO_Write8Bits(LCD_DATA_PORT, data);
 	Delay100ms(1);
