@@ -29,16 +29,7 @@ void Port_Init (uint8 port_index)
 			break;
 		}
 
-		case PC:
-		{
-			GPIO_PORTC_LOCK_R = 0x4C4F434B;
-			GPIO_PORTC_CR_R = 0xFF;
-			GPIO_PORTC_AMSEL_R &= ~ 0xFF;
-			GPIO_PORTC_PCTL_R = 0x00000000;
-			GPIO_PORTC_AFSEL_R = 0x00;
-			GPIO_PORTC_DEN_R = 0xFF;
-			break;
-		}
+		
 		
 		case PD:
 		{

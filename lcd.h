@@ -5,11 +5,11 @@
 #include "DIO.h"
 
 // LCD Pins:
-#define RS 0x01 
-#define RW 0x02
-#define E 0x04
-#define LCD_CTRL_PORT PB
-#define LCD_DATA_PORT PA
+#define RS 0x04
+#define RW 0x08
+#define E 0x10
+#define LCD_CTRL_PORT PA
+#define LCD_DATA_PORT PB
 
 //LCD commands:
 #define Clear_Command 0x01

@@ -19,16 +19,15 @@ void Switch_HandleOnLevel(uint8 port_index, uint8 pins_mask)
 {
 	if(DIO_ReadPort(port_index,pins_mask))
 	{
-		Delay100ms(0.3); // de-bouncing
+		Delay100ms(0.0055); // de-bouncing
 		if(DIO_ReadPort(port_index,pins_mask))
 		{
-			increment();
 			while(DIO_ReadPort(port_index,pins_mask)) 	
 				{
-					 Delay100ms(2);  //consider the delay in lcd_command and lcd_data }
 					 increment();
+					 Delay100ms(0.0325);  //consider the delay in lcd_command and lcd_data }
 				}
-				Delay100ms(0.3);// de-bouncing 
+				
 		}	
 	}
 }
@@ -38,7 +37,7 @@ void Switch_HandleOnPress(uint8 port_index, uint8 pins_mask)
 {
 		if(DIO_ReadPort(port_index,pins_mask))
 		{
-			Delay100ms(0.3);
+			Delay100ms(0.0055);
 			//second check due to switch de-bouncing
 			if(DIO_ReadPort(port_index,pins_mask))
 			{
@@ -52,7 +51,7 @@ void Switch_HandleOnRelease(uint8 port_index, uint8 pins_mask)
 {
 	if(DIO_ReadPort(port_index,pins_mask))
 	{
-		Delay100ms(0.3);
+		Delay100ms(0.0055);
 		if(DIO_ReadPort(port_index,pins_mask))
 		{
 			while(DIO_ReadPort(port_index,pins_mask)) {}
