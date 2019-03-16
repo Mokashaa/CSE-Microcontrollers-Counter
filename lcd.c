@@ -8,7 +8,7 @@ void LCD_SendCommand (uint8 command)
 	Delay100ms(0.01);
 	DIO_WritePort(LCD_CTRL_PORT, E, STD_HIGH);
 	Delay100ms(0.01);
-	DIO_Write8Bits(LCD_CTRL_PORT, command);
+	DIO_Write8Bits(LCD_DATA_PORT, command);
 	Delay100ms(0.01);
 	DIO_WritePort(LCD_CTRL_PORT, E, STD_LOW);
 	Delay100ms(0.01);
